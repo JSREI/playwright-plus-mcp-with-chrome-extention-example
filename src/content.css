@@ -1,0 +1,88 @@
+/* 全屏圆形对号容器 */
+.fullscreen-checkmark-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fullscreen-checkmark-container.show {
+  opacity: 1;
+}
+
+/* 圆形背景 */
+.checkmark-circle {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* 对号SVG */
+.checkmark-svg {
+  width: 120px;
+  height: 120px;
+  animation: checkmarkDraw 1s ease-in-out 0.5s both;
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.5);
+  }
+}
+
+/* 对号绘制动画 */
+@keyframes checkmarkDraw {
+  0% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .checkmark-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .checkmark-svg {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkmark-circle {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .checkmark-svg {
+    width: 70px;
+    height: 70px;
+  }
+} 

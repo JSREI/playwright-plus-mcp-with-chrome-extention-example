@@ -1,0 +1,27 @@
+{
+  "name": "playwright-plus-mcp-with-chrome-extention-example",
+  "version": "1.0.0",
+  "description": "Chrome插件 - 在所有页面上显示全屏圆形对号",
+  "main": "dist/content.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "watch": "tsc --watch",
+    "dev": "npm run build && npm run watch",
+    "clean": "rm -rf dist",
+    "generate-icons": "node scripts/generate-icons.js",
+    "package": "npm run clean && npm run build && cd dist && zip -r ../extension.zip ."
+  },
+  "keywords": [
+    "chrome-extension",
+    "typescript",
+    "checkmark",
+    "fullscreen"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {}
+} 

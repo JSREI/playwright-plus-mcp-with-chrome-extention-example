@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全屏对号显示器</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .status {
+      background: #e8f5e8;
+      border: 1px solid #4CAF50;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .status-text {
+      color: #2e7d32;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .status-description {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #45a049;
+    }
+    
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+    
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+    
+    .info {
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">✅ 全屏对号显示器</div>
+    <div class="subtitle">在所有页面上显示大大的对号</div>
+  </div>
+  
+  <div class="status">
+    <div class="status-text">插件已激活</div>
+    <div class="status-description">当前页面已显示全屏对号</div>
+  </div>
+  
+  <div class="controls">
+    <button class="btn btn-primary" id="refreshBtn">刷新显示</button>
+    <button class="btn btn-secondary" id="toggleBtn">切换显示</button>
+  </div>
+  
+  <div class="info">
+    插件会自动在所有网页上显示一个绿色的圆形对号。<br>
+    点击"刷新显示"可以重新显示对号，<br>
+    点击"切换显示"可以隐藏或显示对号。
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 
