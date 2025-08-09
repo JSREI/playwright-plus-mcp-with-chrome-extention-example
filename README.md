@@ -1,71 +1,71 @@
-# Chrome 扩展 AI 自动化测试解决方案
+# Chrome Extension AI Automation Testing Solution
 
-**中文** | [English](README_EN.md)
+**English** | [中文版](README_ZH.md)
 
-这是一个专为 Chrome 扩展开发者设计的项目，展示如何使用 Playwright MCP 让 AI 助手自动化测试你的 Chrome 扩展。通过这个配置，AI 可以在真实的浏览器环境中加载并测试你的扩展功能。
+This is a project designed specifically for Chrome extension developers, demonstrating how to use Playwright MCP to enable AI assistants to automatically test your Chrome extensions. With this configuration, AI can load and test your extension functionality in a real browser environment.
 
-## 核心价值
+## Core Value
 
-- 🤖 **AI 自动化测试**：让 AI 助手直接测试你的 Chrome 扩展
-- 🔧 **真实环境测试**：在真实 Chrome 浏览器中运行扩展
-- 🚀 **开发效率提升**：自动化重复的测试任务
-- 📋 **完整测试覆盖**：AI 可以测试扩展的各种功能和场景
-- 🎯 **即时反馈**：开发过程中快速验证扩展功能
+- 🤖 **AI Automated Testing**: Let AI assistants directly test your Chrome extensions
+- 🔧 **Real Environment Testing**: Run extensions in real Chrome browser
+- 🚀 **Development Efficiency**: Automate repetitive testing tasks
+- 📋 **Complete Test Coverage**: AI can test various extension functions and scenarios
+- 🎯 **Instant Feedback**: Quickly validate extension functionality during development
 
-## 使用场景
+## Use Cases
 
-### 典型的 Chrome 扩展测试场景
+### Typical Chrome Extension Testing Scenarios
 
-1. **功能测试**：AI 自动测试扩展的各项功能
-2. **兼容性测试**：在不同网站上测试扩展表现
-3. **用户交互测试**：模拟用户点击、输入等操作
-4. **回归测试**：代码更新后自动验证功能
-5. **性能测试**：检查扩展对页面性能的影响
+1. **Functional Testing**: AI automatically tests various extension features
+2. **Compatibility Testing**: Test extension performance on different websites
+3. **User Interaction Testing**: Simulate user clicks, inputs, and other operations
+4. **Regression Testing**: Automatically verify functionality after code updates
+5. **Performance Testing**: Check extension's impact on page performance
 
-### AI 测试示例
+### AI Testing Examples
 
 ```
-开发者：请测试我的广告拦截扩展在百度首页的效果
-AI：好的，我来为你测试：
-1. 打开百度首页
-2. 检查扩展是否正确加载
-3. 验证广告是否被拦截
-4. 测试扩展图标和弹出窗口
-5. 生成测试报告
+Developer: Please test my ad blocker extension on Baidu homepage
+AI: Sure, I'll test it for you:
+1. Open Baidu homepage
+2. Check if extension loads correctly
+3. Verify ads are blocked
+4. Test extension icon and popup window
+5. Generate test report
 ```
 
-## 快速开始
+## Quick Start
 
-### 1. 准备你的扩展项目
+### 1. Prepare Your Extension Project
 ```bash
-# 克隆这个模板项目
+# Clone this template project
 git clone <repository-url>
 cd chrome-extension-ai-testing
 
-# 或者将配置文件复制到你的扩展项目中
+# Or copy configuration files to your extension project
 cp playwright-mcp-config.json /path/to/your/extension/
 ```
 
-### 2. 构建你的扩展
+### 2. Build Your Extension
 ```bash
-# 确保你的扩展构建到 dist 目录
+# Make sure your extension builds to dist directory
 npm run build
-# 或者你的构建命令
+# Or your build command
 ```
 
-### 3. 配置 AI 测试环境
+### 3. Configure AI Testing Environment
 
-## 核心功能：Playwright MCP 扩展加载
+## Core Feature: Playwright MCP Extension Loading
 
-### 什么是 Playwright MCP？
+### What is Playwright MCP?
 
-Playwright MCP (Model Context Protocol) 是一个基于 Playwright 的浏览器自动化服务器，它允许 AI 助手（如 Claude）通过 MCP 协议控制浏览器。本项目演示如何在 Playwright MCP 中加载本地 Chrome 扩展。
+Playwright MCP (Model Context Protocol) is a browser automation server based on Playwright that allows AI assistants (like Claude) to control browsers through the MCP protocol. This project demonstrates how to load local Chrome extensions in Playwright MCP.
 
-### 配置步骤
+### Configuration Steps
 
-**步骤1：MCP 客户端配置**
+**Step 1: MCP Client Configuration**
 
-在你的MCP客户端（如Claude Desktop）配置文件中添加以下配置：
+Add the following configuration to your MCP client (like Claude Desktop) configuration file:
 
 ```json
 {
@@ -83,9 +83,9 @@ Playwright MCP (Model Context Protocol) 是一个基于 Playwright 的浏览器�
 }
 ```
 
-**步骤2：Playwright 扩展配置**
+**Step 2: Playwright Extension Configuration**
 
-项目中的 `playwright-mcp-config.json` 文件展示了扩展加载的核心配置：
+The `playwright-mcp-config.json` file in the project shows the core configuration for extension loading:
 
 ```json
 {
@@ -104,62 +104,62 @@ Playwright MCP (Model Context Protocol) 是一个基于 Playwright 的浏览器�
 }
 ```
 
-### 关键配置解析
+### Key Configuration Analysis
 
-**扩展加载的核心参数：**
+**Core parameters for extension loading:**
 ```bash
 --load-extension=/path/to/extension/dist
 --disable-extensions-except=/path/to/extension/dist
 ```
 
-**重要配置项：**
-- `headless: false` - 扩展需要可视化界面
-- `channel: "chrome"` - 使用 Chrome 浏览器（支持扩展）
-- `projectIsolation: true` - 项目隔离，避免扩展冲突
+**Important configuration items:**
+- `headless: false` - Extensions need visual interface
+- `channel: "chrome"` - Use Chrome browser (supports extensions)
+- `projectIsolation: true` - Project isolation to avoid extension conflicts
 
-**路径配置：**
-- 扩展路径必须指向构建后的 `dist` 目录
-- 支持绝对路径和相对路径
-- 可以同时加载多个扩展（用逗号分隔）
+**Path configuration:**
+- Extension path must point to the built `dist` directory
+- Supports both absolute and relative paths
+- Can load multiple extensions simultaneously (comma-separated)
 
-### AI 自动化测试实战
+### AI Automated Testing in Practice
 
-**基础测试命令：**
+**Basic test commands:**
 ```
-AI：请帮我测试这个扩展的基本功能
-```
-
-**具体测试场景：**
-```
-AI：请执行以下测试：
-1. 打开 https://example.com
-2. 检查扩展图标是否显示
-3. 点击扩展图标，验证弹出窗口
-4. 测试扩展的主要功能
-5. 检查控制台是否有错误
-6. 截图保存测试结果
+AI: Please help me test the basic functionality of this extension
 ```
 
-**高级测试场景：**
+**Specific test scenarios:**
 ```
-AI：请进行完整的扩展测试：
-1. 在 5 个不同网站测试扩展兼容性
-2. 测试扩展的所有用户交互功能
-3. 验证扩展权限是否正常工作
-4. 检查扩展对页面性能的影响
-5. 生成详细的测试报告
+AI: Please execute the following tests:
+1. Open https://example.com
+2. Check if extension icon is displayed
+3. Click extension icon and verify popup window
+4. Test main extension functionality
+5. Check console for errors
+6. Take screenshot and save test results
 ```
 
-## 适配你的扩展项目
+**Advanced test scenarios:**
+```
+AI: Please perform comprehensive extension testing:
+1. Test extension compatibility on 5 different websites
+2. Test all user interaction features of the extension
+3. Verify extension permissions work correctly
+4. Check extension's impact on page performance
+5. Generate detailed test report
+```
 
-### 1. 复制配置文件
+## Adapting Your Extension Project
+
+### 1. Copy Configuration Files
 ```bash
-# 将配置文件复制到你的扩展项目根目录
+# Copy configuration file to your extension project root directory
 cp playwright-mcp-config.json /path/to/your/extension/
 ```
 
-### 2. 修改扩展路径
-编辑 `playwright-mcp-config.json`，更新扩展路径：
+### 2. Modify Extension Path
+Edit `playwright-mcp-config.json` and update the extension path:
 ```json
 {
   "browser": {
@@ -173,8 +173,8 @@ cp playwright-mcp-config.json /path/to/your/extension/
 }
 ```
 
-### 3. 更新 MCP 客户端配置
-在你的 MCP 客户端配置中指向新的配置文件：
+### 3. Update MCP Client Configuration
+Point to the new configuration file in your MCP client configuration:
 ```json
 {
   "mcpServers": {
@@ -191,237 +191,237 @@ cp playwright-mcp-config.json /path/to/your/extension/
 }
 ```
 
-### 4. 开始 AI 测试
-重启 MCP 客户端，然后就可以让 AI 测试你的扩展了！
+### 4. Start AI Testing
+Restart the MCP client, and then you can have AI test your extension!
 
-## 实际测试示例
+## Practical Testing Examples
 
-### 示例 1：广告拦截扩展测试
+### Example 1: Ad Blocker Extension Testing
 ```
-开发者：我开发了一个广告拦截扩展，请帮我测试
+Developer: I developed an ad blocker extension, please help me test it
 
-AI 执行：
-1. 打开包含广告的网站（如新闻网站）
-2. 检查扩展图标状态
-3. 验证广告是否被成功拦截
-4. 测试白名单功能
-5. 检查扩展对页面加载速度的影响
-6. 生成测试报告
-```
-
-### 示例 2：密码管理器扩展测试
-```
-开发者：请测试我的密码管理器扩展的登录功能
-
-AI 执行：
-1. 打开登录页面（如 GitHub 登录）
-2. 检查扩展是否检测到登录表单
-3. 测试自动填充功能
-4. 验证密码生成器
-5. 测试安全存储功能
-6. 检查不同网站的兼容性
+AI executes:
+1. Open websites with ads (like news sites)
+2. Check extension icon status
+3. Verify ads are successfully blocked
+4. Test whitelist functionality
+5. Check extension's impact on page loading speed
+6. Generate test report
 ```
 
-### 示例 3：开发工具扩展测试
+### Example 2: Password Manager Extension Testing
 ```
-开发者：我的 React DevTools 扩展需要全面测试
+Developer: Please test the login functionality of my password manager extension
 
-AI 执行：
-1. 打开 React 应用网站
-2. 检查扩展是否正确识别 React 组件
-3. 测试组件树显示
-4. 验证 Props 和 State 查看功能
-5. 测试性能分析工具
-6. 检查与不同 React 版本的兼容性
+AI executes:
+1. Open login page (like GitHub login)
+2. Check if extension detects login form
+3. Test auto-fill functionality
+4. Verify password generator
+5. Test secure storage functionality
+6. Check compatibility with different websites
 ```
 
-## 项目结构
+### Example 3: Developer Tools Extension Testing
+```
+Developer: My React DevTools extension needs comprehensive testing
+
+AI executes:
+1. Open React application website
+2. Check if extension correctly identifies React components
+3. Test component tree display
+4. Verify Props and State viewing functionality
+5. Test performance analysis tools
+6. Check compatibility with different React versions
+```
+
+## Project Structure
 
 ```
-├── playwright-mcp-config.json      # 🎯 核心：Playwright MCP 配置文件
-├── dist/                           # 🎯 核心：构建输出目录（MCP 加载此目录）
-│   ├── manifest.json               # 扩展清单文件
-│   ├── content.js                  # 内容脚本（编译后）
-│   ├── content.css                 # 样式文件
-│   ├── popup.html                  # 弹出窗口
-│   ├── popup.js                    # 弹出窗口脚本
-│   └── icons/                      # 扩展图标
-├── src/                            # 📁 源码目录（所有插件源文件）
-│   ├── manifest.json               # 扩展清单（源文件）
-│   ├── content.ts                  # TypeScript 内容脚本
-│   ├── content.js                  # JavaScript 内容脚本
-│   ├── content.css                 # 样式文件（源文件）
-│   ├── popup.html                  # 弹出窗口（源文件）
-│   ├── popup.js                    # 弹出窗口脚本（源文件）
-│   └── icons/                      # 图标文件（源文件）
+├── playwright-mcp-config.json      # 🎯 Core: Playwright MCP configuration file
+├── dist/                           # 🎯 Core: Build output directory (MCP loads this directory)
+│   ├── manifest.json               # Extension manifest file
+│   ├── content.js                  # Content script (compiled)
+│   ├── content.css                 # Style file
+│   ├── popup.html                  # Popup window
+│   ├── popup.js                    # Popup window script
+│   └── icons/                      # Extension icons
+├── src/                            # 📁 Source directory (all plugin source files)
+│   ├── manifest.json               # Extension manifest (source file)
+│   ├── content.ts                  # TypeScript content script
+│   ├── content.js                  # JavaScript content script
+│   ├── content.css                 # Style file (source file)
+│   ├── popup.html                  # Popup window (source file)
+│   ├── popup.js                    # Popup window script (source file)
+│   └── icons/                      # Icon files (source files)
 │       ├── icon16.png
 │       ├── icon48.png
 │       └── icon128.png
-├── scripts/                        # 构建和工具脚本
-│   └── build.js                    # 自定义构建脚本
-├── package.json                    # 项目配置
-├── tsconfig.json                   # TypeScript 配置
-└── README.md                       # 项目文档
+├── scripts/                        # Build and tool scripts
+│   └── build.js                    # Custom build script
+├── package.json                    # Project configuration
+├── tsconfig.json                   # TypeScript configuration
+└── README.md                       # Project documentation
 ```
 
-**重点文件说明：**
-- `playwright-mcp-config.json` - Playwright MCP 的扩展加载配置
-- `src/` - 所有插件源文件，开发时修改这里的文件
-- `dist/` - 构建后的扩展文件，这是 MCP 实际加载的目录
-- `scripts/build.js` - 自动化构建脚本，从 src 构建到 dist
+**Key file descriptions:**
+- `playwright-mcp-config.json` - Playwright MCP extension loading configuration
+- `src/` - All plugin source files, modify files here during development
+- `dist/` - Built extension files, this is the directory MCP actually loads
+- `scripts/build.js` - Automated build script, builds from src to dist
 
-## 开发指南
+## Development Guide
 
-### 初始化项目
+### Initialize Project
 ```bash
 npm install
 ```
 
-### 构建扩展
+### Build Extension
 ```bash
-# 完整构建（TypeScript + 静态文件复制）
+# Complete build (TypeScript + static file copying)
 npm run build
 
-# 清理构建目录
+# Clean build directory
 npm run clean
 ```
 
-### 开发模式
+### Development Mode
 ```bash
-# 构建并监听文件变化
+# Build and watch file changes
 npm run dev
 
-# 仅监听 TypeScript 文件变化
+# Watch only TypeScript file changes
 npm run watch
 ```
 
-### 开发流程
-1. **修改源文件**：在 `src/` 目录下修改插件代码
-2. **构建项目**：运行 `npm run build` 生成 `dist/` 目录
-3. **AI 测试**：使用 Playwright MCP 加载 `dist/` 目录进行测试
-4. **迭代开发**：重复上述步骤
+### Development Workflow
+1. **Modify source files**: Modify plugin code in `src/` directory
+2. **Build project**: Run `npm run build` to generate `dist/` directory
+3. **AI testing**: Use Playwright MCP to load `dist/` directory for testing
+4. **Iterative development**: Repeat the above steps
 
-### 文件说明
-- **修改插件功能**：编辑 `src/content.ts` 或 `src/content.js`
-- **修改样式**：编辑 `src/content.css`
-- **修改弹出窗口**：编辑 `src/popup.html` 和 `src/popup.js`
-- **修改权限和配置**：编辑 `src/manifest.json`
+### File Descriptions
+- **Modify plugin functionality**: Edit `src/content.ts` or `src/content.js`
+- **Modify styles**: Edit `src/content.css`
+- **Modify popup window**: Edit `src/popup.html` and `src/popup.js`
+- **Modify permissions and configuration**: Edit `src/manifest.json`
 
-## 技术栈
+## Tech Stack
 
-- **Playwright MCP** - AI 驱动的浏览器自动化
-- **Chrome Extension API** - 扩展开发和测试框架
-- **Model Context Protocol** - AI 助手与工具的通信协议
-- **TypeScript** - 类型安全的扩展开发
-- **Node.js** - 构建和测试工具链
+- **Playwright MCP** - AI-driven browser automation
+- **Chrome Extension API** - Extension development and testing framework
+- **Model Context Protocol** - Communication protocol between AI assistants and tools
+- **TypeScript** - Type-safe extension development
+- **Node.js** - Build and testing toolchain
 
-## 为什么选择 AI 自动化测试？
+## Why Choose AI Automated Testing?
 
-### 传统测试 vs AI 测试
+### Traditional Testing vs AI Testing
 
-**传统手动测试：**
-- ❌ 重复性工作，效率低
-- ❌ 容易遗漏测试场景
-- ❌ 难以进行大规模兼容性测试
-- ❌ 测试结果不够详细
+**Traditional Manual Testing:**
+- ❌ Repetitive work, low efficiency
+- ❌ Easy to miss test scenarios
+- ❌ Difficult to perform large-scale compatibility testing
+- ❌ Test results not detailed enough
 
-**AI 自动化测试：**
-- ✅ 自动执行复杂测试场景
-- ✅ 全面覆盖各种边缘情况
-- ✅ 快速进行多网站兼容性测试
-- ✅ 生成详细的测试报告和截图
-- ✅ 24/7 可用，随时测试
-- ✅ 智能识别和报告问题
+**AI Automated Testing:**
+- ✅ Automatically execute complex test scenarios
+- ✅ Comprehensive coverage of various edge cases
+- ✅ Quick multi-website compatibility testing
+- ✅ Generate detailed test reports and screenshots
+- ✅ Available 24/7, test anytime
+- ✅ Intelligently identify and report issues
 
-## Chrome 扩展开发最佳实践
+## Chrome Extension Development Best Practices
 
-### 开发流程集成
+### Development Workflow Integration
 
-1. **开发阶段**
+1. **Development Phase**
    ```bash
-   # 开发你的扩展
+   # Develop your extension
    npm run dev
 
-   # 让 AI 实时测试
-   AI: 请测试我刚修改的功能
+   # Let AI test in real-time
+   AI: Please test the functionality I just modified
    ```
 
-2. **测试阶段**
+2. **Testing Phase**
    ```bash
-   # 构建扩展
+   # Build extension
    npm run build
 
-   # AI 全面测试
-   AI: 请进行完整的回归测试
+   # AI comprehensive testing
+   AI: Please perform complete regression testing
    ```
 
-3. **发布前验证**
+3. **Pre-release Verification**
    ```bash
-   AI: 请在以下网站测试扩展兼容性：
+   AI: Please test extension compatibility on the following websites:
    - Google.com
    - GitHub.com
    - Stack Overflow
-   - 你的目标网站
+   - Your target websites
    ```
 
-### 测试类型
+### Test Types
 
-- **功能测试**：验证扩展核心功能
-- **UI 测试**：检查扩展界面和交互
-- **兼容性测试**：多网站环境测试
-- **性能测试**：检查对页面性能影响
-- **错误处理测试**：异常情况处理
-- **权限测试**：验证扩展权限使用
+- **Functional Testing**: Verify core extension functionality
+- **UI Testing**: Check extension interface and interactions
+- **Compatibility Testing**: Multi-website environment testing
+- **Performance Testing**: Check impact on page performance
+- **Error Handling Testing**: Exception handling
+- **Permission Testing**: Verify extension permission usage
 
-## 常见问题
+## FAQ
 
-### Q: 扩展没有加载怎么办？
-1. **检查构建输出**：确保 `dist` 目录存在且包含 `manifest.json`
-2. **验证路径**：确认配置文件中的扩展路径正确
-3. **检查权限**：确保扩展有必要的权限声明
-4. **查看控制台**：让 AI 检查浏览器控制台的错误信息
+### Q: What if the extension doesn't load?
+1. **Check build output**: Ensure `dist` directory exists and contains `manifest.json`
+2. **Verify path**: Confirm the extension path in configuration file is correct
+3. **Check permissions**: Ensure extension has necessary permission declarations
+4. **View console**: Have AI check browser console for error messages
 
-### Q: AI 测试时扩展功能异常？
-1. **手动验证**：先手动测试扩展是否正常工作
-2. **检查权限**：确认扩展权限配置正确
-3. **查看日志**：让 AI 检查扩展的错误日志
-4. **简化测试**：从简单功能开始测试
+### Q: Extension functionality abnormal during AI testing?
+1. **Manual verification**: First manually test if extension works normally
+2. **Check permissions**: Confirm extension permission configuration is correct
+3. **View logs**: Have AI check extension error logs
+4. **Simplify testing**: Start testing from simple functionality
 
-### Q: 如何测试需要特定权限的扩展？
+### Q: How to test extensions requiring specific permissions?
 ```
-AI: 请测试我的扩展，它需要以下权限：
-- activeTab: 访问当前标签页
-- storage: 本地存储
-- notifications: 显示通知
-请验证这些权限是否正常工作
-```
-
-### Q: 如何进行跨网站兼容性测试？
-```
-AI: 请在以下网站测试我的扩展：
-1. https://example.com - 基础功能测试
-2. https://github.com - 代码网站兼容性
-3. https://youtube.com - 视频网站兼容性
-4. https://docs.google.com - 文档网站兼容性
-每个网站都要测试扩展的核心功能
+AI: Please test my extension, it requires the following permissions:
+- activeTab: Access current tab
+- storage: Local storage
+- notifications: Display notifications
+Please verify these permissions work correctly
 ```
 
-## 贡献
+### Q: How to perform cross-website compatibility testing?
+```
+AI: Please test my extension on the following websites:
+1. https://example.com - Basic functionality testing
+2. https://github.com - Code website compatibility
+3. https://youtube.com - Video website compatibility
+4. https://docs.google.com - Document website compatibility
+Test core extension functionality on each website
+```
 
-欢迎提交 Issue 和 Pull Request！
+## Contributing
 
-### 贡献指南
-1. Fork 项目
-2. 创建功能分支
-3. 提交更改
-4. 发起 Pull Request
+Welcome to submit Issues and Pull Requests!
 
-## 许可证
+### Contribution Guidelines
+1. Fork the project
+2. Create feature branch
+3. Submit changes
+4. Create Pull Request
+
+## License
 
 MIT License
 
-## 相关资源
+## Related Resources
 
-- [Playwright MCP 官方文档](https://github.com/ai-coding-labs/playwright-mcp-plus)
-- [Chrome Extension 开发指南](https://developer.chrome.com/docs/extensions/)
+- [Playwright MCP Official Documentation](https://github.com/ai-coding-labs/playwright-mcp-plus)
+- [Chrome Extension Development Guide](https://developer.chrome.com/docs/extensions/)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
