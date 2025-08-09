@@ -1,5 +1,7 @@
 # Chrome 扩展 AI 自动化测试解决方案
 
+**中文** | [English](README_EN.md)
+
 这是一个专为 Chrome 扩展开发者设计的项目，展示如何使用 Playwright MCP 让 AI 助手自动化测试你的 Chrome 扩展。通过这个配置，AI 可以在真实的浏览器环境中加载并测试你的扩展功能。
 
 ## 核心价值
